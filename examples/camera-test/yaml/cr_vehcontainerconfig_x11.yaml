@@ -1,0 +1,24 @@
+apiVersion: crd.piccolo.org/v1alpha1
+kind: VehContainerConfig
+metadata:
+  name: vehicle-x11-window
+spec:
+  piccoloVolumes:
+    - volume:
+        name: x11-unix
+        hostPath:
+          path: /tmp/.X11-unix
+      volumeMount:
+        name: x11-unix
+        mountPath: /tmp/.X11-unix
+    - volume:
+        name: x11-auth
+        hostPath:
+          path: /root/.Xauthority
+      volumeMount:
+        name: x11-auth
+        mountPath: /root/.Xauthority
+  piccoloEnv:
+    - name: DISPLAY
+      # TODO: ${DISPLAY} is not converted in this file.
+      value: "localhost:10.0"

@@ -1,0 +1,8 @@
+apiVersion: crd.piccolo.org/v1alpha1
+kind: VehContainerConfig
+metadata:
+  name: dds-domain-id-b
+spec:
+  piccoloEnv:
+    - name: CYCLONEDDS_URI
+      value: '<CycloneDDS><Domain Id="101"></Domain></CycloneDDS>'

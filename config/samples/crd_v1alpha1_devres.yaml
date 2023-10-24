@@ -1,0 +1,12 @@
+apiVersion: crd.piccolo.org/v1alpha1
+kind: DevRes
+metadata:
+  labels:
+    app.kubernetes.io/name: devres
+    app.kubernetes.io/instance: devres-sample
+    app.kubernetes.io/part-of: piccolo
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: piccolo
+  name: devres-sample
+spec:
+  # TODO(user): Add fields here

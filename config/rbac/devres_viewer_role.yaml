@@ -1,0 +1,27 @@
+# permissions for end users to view devres.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: devres-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: piccolo
+    app.kubernetes.io/part-of: piccolo
+    app.kubernetes.io/managed-by: kustomize
+  name: devres-viewer-role
+rules:
+- apiGroups:
+  - crd.piccolo.org
+  resources:
+  - devres
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - crd.piccolo.org
+  resources:
+  - devres/status
+  verbs:
+  - get
