@@ -1,0 +1,32 @@
+FROM alpine:latest AS build
+
+RUN apk update && apk add git && apk add cmake && apk add --no-cache build-base && \
+    apk add maven && apk fetch openjdk8 && apk add openjdk8 && apk add linux-headers && \
+    apk add bash
+
+WORKDIR /src/
+RUN git clone https://github.com/eclipse-cyclonedds/cyclonedds.git
+WORKDIR /dds/
+WORKDIR /src/cyclonedds/build
+RUN cmake -DCMAKE_INSTALL_PREFIX=/dds/ .. && \
+    cmake --build . && cmake --build . --target install
+
+WORKDIR /src/
+RUN git clone https://github.com/eclipse-cyclonedds/cyclonedds-cxx.git
+WORKDIR /src/cyclonedds-cxx/build
+RUN cmake -DCMAKE_INSTALL_PREFIX=/dds/ -DCMAKE_PREFIX_PATH=/dds/ .. && \
+    cmake --build . && cmake --build . --target install
+
+
+FROM alpine:latest
+
+RUN apk update && apk add bash && apk add cmake && apk add --no-cache build-base
+WORKDIR /dds/
+COPY --from=build /dds/ /dds/
+
+COPY app/ /app
+WORKDIR /app/result
+WORKDIR /app/build
+RUN cmake -DCMAKE_PREFIX_PATH=/dds/ .. && cmake --build .
+
+CMD ./cxxRoundtripPong

@@ -1,0 +1,12 @@
+apiVersion: crd.piccolo.org/v1alpha1
+kind: VehPod
+metadata:
+  labels:
+    app.kubernetes.io/name: vehpod
+    app.kubernetes.io/instance: vehpod-sample
+    app.kubernetes.io/part-of: piccolo
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: piccolo
+  name: vehpod-sample
+spec:
+  # TODO(user): Add fields here

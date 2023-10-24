@@ -1,0 +1,63 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - crd.piccolo.org
+  resources:
+  - devres
+  verbs:
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
+  - crd.piccolo.org
+  resources:
+  - vehcontainerconfigs
+  verbs:
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
+  - crd.piccolo.org
+  resources:
+  - vehpods
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - crd.piccolo.org
+  resources:
+  - vehpods/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - crd.piccolo.org
+  resources:
+  - vehpods/status
+  verbs:
+  - get
+  - patch
+  - update

@@ -1,0 +1,15 @@
+apiVersion: crd.piccolo.org/v1alpha1
+kind: VehPod
+metadata:
+  name: ddstest-ping
+spec:
+  devContainerIdx: 1
+  vehContainerConfigInfo: ['dds-domain-id-a']
+  vehContainerConfigIdx: 1
+  appType: system
+  podSpec:
+    containers:
+    - name: ping-container
+      image: sdv.lge.com/library/dds-test/ping:1.0 
+    nodeSelector:
+      name: "master"

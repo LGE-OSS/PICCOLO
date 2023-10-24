@@ -1,0 +1,15 @@
+apiVersion: crd.piccolo.org/v1alpha1
+kind: VehPod
+metadata:
+  name: ddstest-pong
+spec:
+  devContainerIdx: 1
+  vehContainerConfigInfo: ['dds-domain-id-b']
+  vehContainerConfigIdx: 1
+  appType: system
+  podSpec:
+    containers:
+    - name: pong-container
+      image: sdv.lge.com/library/dds-test/pong:1.0 
+    nodeSelector:
+      name: "master"

@@ -1,0 +1,7 @@
+apiVersion: crd.piccolo.org/v1alpha1
+kind: DevRes
+metadata:
+  name: cam-interior-driver
+spec:
+  devType: front-camera
+  path: /dev/video0

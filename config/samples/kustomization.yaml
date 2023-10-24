@@ -1,0 +1,6 @@
+## Append samples of your project ##
+resources:
+- crd_v1alpha1_vehpod.yaml
+- crd_v1alpha1_vehcontainerconfig.yaml
+- crd_v1alpha1_devres.yaml
+#+kubebuilder:scaffold:manifestskustomizesamples

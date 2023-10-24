@@ -1,0 +1,24 @@
+apiVersion: crd.piccolo.org/v1alpha1
+kind: VehPod
+metadata:
+  name: cameratest-app-pod
+spec:
+  devResInfo:
+  - devName: cam-interior-driver
+    devDestPath: /dev/video0
+  devContainerIdx: 1
+  vehContainerConfigInfo: ['vehicle-x11-window']
+  vehContainerConfigIdx: 1
+  appType: system
+  podSpec:
+    hostNetwork: true
+    containers:
+    - name: camera-app-pod
+      image: sdv.lge.com/library/frd:2.2
+      securityContext:
+        privileged: true
+      command: ['python3', '/app/camera-test.py']
+      #command: ['sh', '-c', 'echo xxx && sleep 60000']
+    terminationGracePeriodSeconds: 0
+    nodeSelector:
+      name: "master"
