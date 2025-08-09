@@ -1,4 +1,27 @@
 # PICCOLO
+
+## ⚠️ 프로젝트 개발 정지 공고 / Project Discontinuation Notice
+
+**[한국어]**
+
+본 프로젝트는 Kubernetes 기반의 차량용 오케스트레이터 개발을 위해서 시작했으나, Kubernetes가 가진 구조적 한계로 해당 프로젝트의 개발 정지를 결정하였습니다.
+
+그러므로 본 프로젝트의 개발을 정지합니다.
+
+이후의 개발은 아래 새로운 프로젝트에서 개발이 진행되고 있음을 알립니다.
+https://github.com/eclipse-pullpiri/pullpiri
+
+**[English]**
+
+This project was started to develop a Kubernetes-based vehicle orchestrator, but we have decided to discontinue the development of this project due to the structural limitations of Kubernetes.
+
+Therefore, we are discontinuing the development of this project.
+
+We inform you that future development is proceeding in the new project below:
+https://github.com/eclipse-pullpiri/pullpiri
+
+---
+
 Piccolo is a project providing MCO (Mixed Critical Orchestration) for SDV(Software Defined Vehicle).
 PICCOLO is a project specifically designed to consider the unique characteristics of vehicles in the vehicle environment and provide orchestration technology based on containerization for vehicle scenarios.
 
